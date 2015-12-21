@@ -100,8 +100,8 @@ define tomcat::service (
     if $start_command {
       $_start = $start_command
     } elsif $_catalina_base == $_catalina_home {
-      $_start = "export CATALINA_HOME=${_catalina_home}; export CATALINA_BASE=${_catalina_base}; \
-                 $CATALINA_BASE/bin/jsvc \
+      $_start = "export CATALINA_HOME=${_catalina_home}; export CATALINA_BASE=${_catalina_base};
+                 \$CATALINA_BASE/bin/jsvc \
                    ${_jsvc_home} -user ${::tomcat::user} \
                    -classpath \$CATALINA_BASE/bin/bootstrap.jar:\$CATALINA_BASE/bin/tomcat-juli.jar \
                    -outfile \$CATALINA_BASE/logs/catalina.out \
